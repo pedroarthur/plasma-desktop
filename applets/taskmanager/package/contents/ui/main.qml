@@ -91,11 +91,10 @@ Item {
         filterByActivity: plasmoid.configuration.showOnlyCurrentActivity
         filterNotMinimized: plasmoid.configuration.showOnlyMinimized
 
-        sortMode: iconsOnly ? TaskManager.TasksModel.SortManual
-            : sortModeEnumValue(plasmoid.configuration.sortingStrategy)
+        sortMode: sortModeEnumValue(plasmoid.configuration.sortingStrategy)
         launchInPlace: iconsOnly
         separateLaunchers: {
-            if (!iconsOnly && !plasmoid.configuration.separateLaunchers
+            if (!plasmoid.configuration.separateLaunchers
                 && plasmoid.configuration.sortingStrategy == 1) {
                 return false;
             }
@@ -103,8 +102,7 @@ Item {
             return true;
         }
 
-        groupMode: iconsOnly ? TaskManager.TasksModel.GroupApplication
-            : sortModeEnumValue(plasmoid.configuration.groupingStrategy)
+        groupMode: sortModeEnumValue(plasmoid.configuration.groupingStrategy)
         groupInline: !plasmoid.configuration.groupPopups
         groupingWindowTasksThreshold: (plasmoid.configuration.onlyGroupWhenFull && !iconsOnly
             ? LayoutManager.optimumCapacity(width, height) + 1 : -1)

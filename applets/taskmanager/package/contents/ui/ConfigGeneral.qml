@@ -126,8 +126,6 @@ Item {
             title: i18n("Grouping and Sorting")
             flat: true
 
-            visible: (plasmoid.pluginName != "org.kde.plasma.icontasks")
-
             ColumnLayout {
                 GridLayout {
                     columns: 3
